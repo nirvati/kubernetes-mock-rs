@@ -17,7 +17,6 @@
 //! Mock Kubernetes client in Rust
 
 use k8s_openapi::apimachinery::pkg::apis::meta::v1::WatchEvent;
-use k8s_openapi::http::{Request, Response};
 use kube::core::ObjectList;
 use kube::Client;
 
@@ -410,6 +409,7 @@ fn list<T: kube::Resource + Clone>(items: &[T]) -> ObjectList<T> {
             resource_version: Some("1".into()),
             ..Default::default()
         },
+        types: Default::default(),
     }
 }
 
